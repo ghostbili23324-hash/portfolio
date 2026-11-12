@@ -4,6 +4,7 @@
   var lastTrigger = null;
   function openLb(btn) {
     lastTrigger = btn;
+    lbImg.style.display = "";
     lbImg.src = btn.getAttribute("data-full");
     lbImg.alt = btn.getAttribute("data-alt") || "";
     lb.hidden = false;
