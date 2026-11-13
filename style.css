@@ -254,3 +254,4 @@ footer { padding-top: 32px; border-top: 1px solid var(--line); display: flex; fl
   .service, .offer, .project, .poster { transition: none; }
   .service:hover, .offer:hover, .project:hover, .poster:hover { transform: none; }
 }
+.lightbox { display: none !important; }
