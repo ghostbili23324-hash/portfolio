@@ -71,3 +71,14 @@
     } catch (err) { fail(); }
   });
 })();
+(function () {
+  if (!("IntersectionObserver" in window)) return;
+  var els = document.querySelectorAll("main section > *");
+  document.documentElement.classList.add("js");
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) {
+      if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); }
+    });
+  }, { threshold: 0.12 });
+  Array.prototype.forEach.call(els, function (el) { el.classList.add("reveal"); io.observe(el); });
+})();
