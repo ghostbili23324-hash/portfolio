@@ -255,3 +255,7 @@ footer { padding-top: 32px; border-top: 1px solid var(--line); display: flex; fl
   .service:hover, .offer:hover, .project:hover, .poster:hover { transform: none; }
 }
 .lightbox { display: none !important; }
+/* Apparition au défilement */
+.js .reveal { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s ease; }
+.js .reveal.in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) { .js .reveal { opacity: 1; transform: none; transition: none; } }
