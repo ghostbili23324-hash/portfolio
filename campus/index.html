@@ -141,3 +141,17 @@ footer{text-align:center;padding:26px 16px;color:var(--deep);font-size:14px}
 </script>
 </body>
 </html>
+<style>
+.btn{display:block;text-align:center;text-decoration:none;background:var(--pri);color:#fff;font-weight:700;border-radius:12px;padding:11px;margin-top:auto;border:0;cursor:pointer;font-size:15px;width:100%}
+.btn:hover{background:var(--deep)}
+.empty{grid-column:1/-1;text-align:center;padding:30px;color:var(--deep)}
+section.sell,section.rules{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px;margin-top:26px}
+h2{font-size:22px;margin-bottom:6px;letter-spacing:-.3px}
+.f{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0}
+.f .full{grid-column:1/-1}
+label{font-size:13px;font-weight:700;color:var(--deep);display:block;margin-bottom:4px}
+.rules li{margin:6px 0 6px 18px}
+footer{text-align:center;padding:26px 16px;color:var(--deep);font-size:14px}
+@media(max-width:520px){.f{grid-template-columns:1fr}.grid{grid-template-columns:1fr 1fr;gap:10px}.ph{height:110px}}
+@media(prefers-reduced-motion:reduce){.card{transition:none}}
+</style>
