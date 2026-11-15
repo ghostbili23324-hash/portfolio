@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>CampusTogo, le marché des étudiants</title>
+<title>Deal Togo Shop, le marché des étudiants</title>
 <meta name="description" content="Achète et vends d'occasion entre étudiants à Lomé.">
 <style>
 :root{--bg:#F4F1DE;--ink:#0D1B2A;--deep:#1B263B;--pri:#415A77;--acc:#778D7A;--sand:#D4C4A8;--card:#FBF9F1;--line:#E0D6BC}
@@ -52,7 +52,7 @@ footer{text-align:center;padding:26px 16px;color:var(--deep);font-size:14px}
 </head>
 <body>
 <header><div class="wrap">
-  <div class="brand">Campus<span>Togo</span></div>
+  <div class="brand">Deal <span>Togo</span> Shop</div>
   <p>Achète et vends d'occasion entre étudiants de Lomé.</p>
   <div class="search"><input id="q" type="search" placeholder="Chercher : sac, chaussures, cours…" aria-label="Rechercher"></div>
 </div></header>
@@ -91,7 +91,7 @@ footer{text-align:center;padding:26px 16px;color:var(--deep);font-size:14px}
     </ul>
   </section>
 </main>
-<footer>CampusTogo · fait à Lomé par Ghost · <a href="../" style="color:inherit">mon portfolio</a></footer>
+<footer>Deal Togo Shop · fait à Lomé par Ghost · <a href="../" style="color:inherit">mon portfolio</a></footer>
 <script src="listings.js"></script>
 <script>
 (function(){
@@ -115,7 +115,7 @@ footer{text-align:center;padding:26px 16px;color:var(--deep);font-size:14px}
     $("count").textContent=list.length+" annonce"+(list.length>1?"s":"");
     if(!list.length){$("grid").innerHTML='<div class="empty">Aucune annonce pour le moment.<br>Sois le premier à vendre ci-dessous 👇</div>';return}
     $("grid").innerHTML=list.map(function(a){
-      var msg="Bonjour, je suis intéressé(e) par ton annonce sur CampusTogo : "+a.titre+" ("+money(a.prix)+"). Est-ce encore disponible ?";
+      var msg="Bonjour, je suis intéressé(e) par ton annonce sur Deal Togo Shop : "+a.titre+" ("+money(a.prix)+"). Est-ce encore disponible ?";
       var ph=a.photo?'<img loading="lazy" src="'+esc(a.photo)+'" alt="'+esc(a.titre)+'">':esc(a.icone||"🛍️");
       return '<article class="card"><div class="ph">'+ph+'</div><div class="body">'+
         '<div class="price">'+money(a.prix)+'</div><div class="t">'+esc(a.titre)+'</div>'+
@@ -128,7 +128,7 @@ footer{text-align:center;padding:26px 16px;color:var(--deep);font-size:14px}
   $("ecole").addEventListener("change",render);
   $("s_cat").innerHTML=CATS.map(function(c){return "<option>"+esc(c)+"</option>"}).join("");
   function sell(){
-    var t="Bonjour, je veux publier une annonce sur CampusTogo :\n"+
+    var t="Bonjour, je veux publier une annonce sur Deal Togo Shop:\n"+
       "Article : "+($("s_titre").value.trim()||"(à préciser)")+"\n"+
       "Prix : "+($("s_prix").value.trim()||"(à préciser)")+" FCFA\n"+
       "Catégorie : "+$("s_cat").value+"\nÉcole : "+$("s_ecole").value+"\nÉtat : "+$("s_etat").value+"\n"+
@@ -155,3 +155,7 @@ footer{text-align:center;padding:26px 16px;color:var(--deep);font-size:14px}
 @media(max-width:520px){.f{grid-template-columns:1fr}.grid{grid-template-columns:1fr 1fr;gap:10px}.ph{height:110px}}
 @media(prefers-reduced-motion:reduce){.card{transition:none}}
 </style>
+<script src="pwa.js"></script>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#0D1B2A">
