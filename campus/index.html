@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CampusTogo, le marché des étudiants</title>
+<meta name="description" content="Achète et vends d'occasion entre étudiants à Lomé.">
+<style>
+:root{--bg:#F4F1DE;--ink:#0D1B2A;--deep:#1B263B;--pri:#415A77;--acc:#778D7A;--sand:#D4C4A8;--card:#FBF9F1;--line:#E0D6BC}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--ink);font:16px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+header{background:linear-gradient(180deg,#0D1B2A,#1B263B);color:#fff;padding:22px 16px 26px;position:relative;overflow:hidden}
+header::after{content:"";position:absolute;right:-60px;top:-60px;width:210px;height:210px;border-radius:50%;border:16px solid var(--sand);box-shadow:0 0 40px #778D7A,inset 0 0 30px #778D7A;opacity:.5}
+.wrap{max-width:980px;margin:0 auto;position:relative;z-index:1}
+.brand{font-weight:800;font-size:26px;letter-spacing:-.5px}
+.brand span{color:var(--sand)}
+header p{color:#D4C4A8;margin:6px 0 16px;max-width:30em}
+.search{display:flex;gap:8px}
+input,select,textarea{font:inherit;color:var(--ink);background:#fff;border:2px solid var(--line);border-radius:12px;padding:12px 14px;width:100%}
+input:focus,select:focus{outline:none;border-color:var(--pri)}
+main{max-width:980px;margin:0 auto;padding:16px}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:4px 0 12px;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:none;border:2px solid var(--line);background:var(--card);color:var(--ink);border-radius:99px;padding:8px 14px;font:600 14px inherit;cursor:pointer}
+.chip.on{background:var(--pri);border-color:var(--pri);color:#fff}
+.bar{display:flex;gap:10px;align-items:center;margin-bottom:14px}
+.bar select{max-width:220px}
+.count{color:var(--deep);font-size:14px;margin-left:auto}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px}
+.card{background:var(--card);border-radius:16px;overflow:hidden;border:1px solid var(--line);display:flex;flex-direction:column;transition:transform .2s}
+.card:hover{transform:translateY(-3px)}
+.ph{height:130px;background:linear-gradient(135deg,#EDE5CC,#D4C4A8);display:grid;place-items:center;font-size:54px}
+.ph img{width:100%;height:100%;object-fit:cover}
+.body{padding:12px;display:flex;flex-direction:column;gap:6px;flex:1}
+.price{font-weight:800;font-size:19px;color:var(--ink)}
+.t{font-weight:600}
+.meta{font-size:13px;color:#5b6b78}
+.ok{font-size:12px;background:#E3EAE3;color:#3d5a45;border-radius:99px;padding:2px 8px;display:inline-block;font-weight:700}
