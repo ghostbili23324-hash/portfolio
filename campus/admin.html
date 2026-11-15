@@ -1,0 +1,15 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>Outil annonces</title>
+<style>body{margin:0;padding:16px;background:#F4F1DE;color:#0D1B2A;font:16px system-ui,sans-serif;max-width:560px;margin:auto}
+h1{font-size:22px}label{display:block;font-weight:700;font-size:13px;margin:10px 0 4px;color:#1B263B}
+input,select,textarea{width:100%;box-sizing:border-box;font:inherit;padding:11px;border:2px solid #E0D6BC;border-radius:10px;background:#fff}
+button{width:100%;margin-top:12px;padding:13px;border:0;border-radius:12px;background:#415A77;color:#fff;font:700 16px system-ui}
+textarea{height:130px;font:13px monospace}.r{display:flex;gap:8px;align-items:center;margin-top:10px}.r input{width:auto}p{font-size:14px;color:#415A77}</style></head><body>
+<h1>Outil annonces</h1><p>Remplis, copie la ligne, colle-la dans listings.js.</p>
+<label>Article</label><input id="t"><label>Prix (FCFA)</label><input id="p" inputmode="numeric">
+<label>Catégorie</label><select id="c"></select>
+<label>École</label><select id="e"><option>ESGIS</option><option>Université de Lomé</option><option>Université de Kara</option><option>Autre école</option></select>
+<label>État</label><select id="s"><option>Neuf</option><option>Très bon état</option><option>Bon état</option><option>Usé mais fonctionne</option></select>
+<label>WhatsApp du vendeur</label><input id="n" inputmode="tel" placeholder="70 74 58 06">
+<label>Nom de la photo (facultatif)</label><input id="h" placeholder="sac.jpg">
+<div class="r"><input type="checkbox" id="v" checked><label style="margin:0">Étudiant vérifié</label></div>
+<label>Ligne à copier</label><textarea id="o" readonly></textarea><button id="b">Copier la ligne</button><p id="m"></p>
