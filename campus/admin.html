@@ -13,3 +13,14 @@ textarea{height:130px;font:13px monospace}.r{display:flex;gap:8px;align-items:ce
 <label>Nom de la photo (facultatif)</label><input id="h" placeholder="sac.jpg">
 <div class="r"><input type="checkbox" id="v" checked><label style="margin:0">Étudiant vérifié</label></div>
 <label>Ligne à copier</label><textarea id="o" readonly></textarea><button id="b">Copier la ligne</button><p id="m"></p>
+<script>
+var I={"Vêtements":"👕","Chaussures":"👟","Téléphones":"📱","Livres & cours":"📚","Chambre":"🏠","Anime":"🎌","Autre":"🛍️"};
+var $=function(i){return document.getElementById(i)};
+$("c").innerHTML=Object.keys(I).map(function(k){return"<option>"+k+"</option>"}).join("");
+function tel(x){x=x.replace(/\D/g,"").replace(/^00/,"");return x.length==8?"228"+x:x}
+function g(){var q=JSON.stringify,c=$("c").value;
+$("o").value="  { titre: "+q($("t").value.trim())+", prix: "+(parseInt($("p").value.replace(/\D/g,""))||0)+", cat: "+q(c)+", ecole: "+q($("e").value)+", etat: "+q($("s").value)+", tel: "+q(tel($("n").value))+", photo: "+q($("h").value.trim())+", icone: "+q(I[c])+", verifie: "+$("v").checked+", date: "+q(new Date().toISOString().slice(0,10))+" },"}
+["t","p","c","e","s","n","h","v"].forEach(function(i){$(i).addEventListener("input",g);$(i).addEventListener("change",g)});g();
+$("b").onclick=function(){var o=$("o");o.select();var ok=function(){$("m").textContent="Copié. Colle-la dans listings.js."};
+try{navigator.clipboard.writeText(o.value).then(ok,function(){document.execCommand("copy");ok()})}catch(e){document.execCommand("copy");ok()}};
+</script></body></html>
