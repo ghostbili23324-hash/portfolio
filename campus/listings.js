@@ -11,3 +11,4 @@ window.ANNONCES = [
   { titre: "Exemple : Téléphone Android 64 Go", prix: 35000, cat: "Téléphones", ecole: "ESGIS", etat: "Bon état", tel: "22870745806", photo: "", icone: "📱", verifie: true, date: "2026-11-12" },
   { titre: "Exemple : Figurine anime", prix: 6000, cat: "Anime", ecole: "ESGIS", etat: "Neuf", tel: "22870745806", photo: "", icone: "🎌", verifie: true, date: "2026-11-11" }
 ];
+window.ANNONCES = [,
