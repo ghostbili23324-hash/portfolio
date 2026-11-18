@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DealTo, achète et vends partout au Togo</title>
+<meta name="description" content="DealTo : le marché d'occasion du Togo. Achète et vends près de chez toi.">
+<meta name="theme-color" content="#262262">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-192.png">
+<link rel="stylesheet" href="deal.css">
+</head>
+<body>
+<header>
+  <div class="top"><div class="logo">Deal<span>To</span></div><a class="vend" href="#vendre">+ Vendre</a></div>
+  <div class="search"><input id="q" type="search" placeholder="Chercher un article…" aria-label="Rechercher"></div>
+  <div class="chips" id="chips"></div>
+</header>
+<main>
+  <div class="bar">
+    <select id="ville" aria-label="Ville"></select>
+    <select id="tri" aria-label="Trier"><option value="new">Plus récents</option><option value="asc">Prix croissant</option><option value="desc">Prix décroissant</option></select>
+  </div>
+  <div class="count" id="count"></div>
+  <div class="grid" id="grid"></div>
+  <section class="sell" id="vendre">
+    <h2>Vendre un article</h2>
+    <p class="hint">Remplis, puis envoie sur WhatsApp avec 1 à 3 photos. On publie rapidement.</p>
+    <label>Titre<input id="s_titre" placeholder="Ex : sac à dos noir"></label>
+    <label>Description<textarea id="s_desc" rows="3" placeholder="Taille, couleur, défauts…"></textarea></label>
+    <label>Prix (FCFA)<input id="s_prix" inputmode="numeric" placeholder="5000"></label>
+    <label>Catégorie<select id="s_cat"></select></label>
+    <label>État<select id="s_etat"><option>Neuf</option><option>Très bon état</option><option>Bon état</option><option>Usé mais fonctionne</option></select></label>
+    <label>Ville<select id="s_ville"></select></label>
+        <label>Quartier<input id="s_quartier" placeholder="Ex : Adidogomé"></label>
+    <label>Ton numéro WhatsApp<input id="s_tel" inputmode="tel" placeholder="+228 …"></label>
+    <a class="wa" id="sendSell" href="#" target="_blank" rel="noopener">Envoyer sur WhatsApp</a>
+  </section>
+  <section class="tips"><h2>Acheter et vendre en sécurité</h2>
+    <ul><li>Rencontre-toi dans un lieu public, de jour.</li><li>Vérifie l'article avant de payer.</li><li>Ne paie jamais à l'avance à un inconnu.</li></ul></section>
+</main>
+<div class="sheet" id="sheet" hidden><div class="panel" id="panel"></div></div>
+<footer>DealTo · fait au Togo par Ghost · <a href="../">mon portfolio</a></footer>
+<script src="deal.js"></script>
+<script src="pwa.js"></script>
+</body>
+</html>
