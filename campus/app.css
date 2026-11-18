@@ -41,3 +41,4 @@ footer{text-align:center;padding:26px 16px;color:var(--deep);font-size:14px}
 @media(max-width:520px){.f{grid-template-columns:1fr}.grid{grid-template-columns:1fr 1fr;gap:10px}.ph{height:110px}}
 @media(prefers-reduced-motion:reduce){.card{transition:none}}
 .brand{display:flex;align-items:center;gap:12px}.logo{width:58px;height:58px;border-radius:50%;box-shadow:0 0 0 3px #D4C4A8}
+.brand{display:flex;align-items:center;gap:12px}.logo{width:58px;height:58px;border-radius:50%;box-shadow:0 0 0 3px #D4C4A8}
