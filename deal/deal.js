@@ -104,6 +104,7 @@
       .then(function(r){if(!r.ok)throw 0;return r.json()})
       .then(function(rows){data=rows;render()})
       .catch(function(){$("count").textContent="Connexion impossible"});
+    window.DT={view:function(){return view},all:function(){return data},tog:toggleFav,fav:isFav,render:render};
   }
   chips();render();load();
 })();
