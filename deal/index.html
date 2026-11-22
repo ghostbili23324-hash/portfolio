@@ -16,7 +16,7 @@
 <body>
 <header>
   <div class="top"><div class="logo">Deal<span>To</span></div><button class="loc" id="locBtn">📍 <span id="locTxt">Toutes les villes</span></button></div>
-  <div class="search"><span>🔍</span><input id="q" type="search" placeholder="Que cherches-tu ?" aria-label="Rechercher"><button id="filt" aria-label="Filtres">⚙️</button></div>
+  <div class="search"><span>🔍</span><input id="q" type="search" placeholder="Que cherches-tu ?" aria-label="Rechercher"><button id="filt" aria-label="Filtres">⚙</button></div>
   <div class="filters" id="filters" hidden>
     <select id="ville" aria-label="Ville"></select>
     <select id="tri" aria-label="Trier"><option value="new">Plus récents</option><option value="asc">Prix croissant</option><option value="desc">Prix décroissant</option></select>
@@ -26,14 +26,15 @@
   <section class="hero">
     <small>DEALTO</small>
     <h1>VENDS EN<br><b>2 MINUTES</b></h1>
-    <p>Une photo, un prix, c'est parti. On valide ton annonce.</p>
+        <p>Une photo, un prix, c'est parti. On valide ton annonce.</p>
     <button class="cta" data-t="sell">Publier un article →</button>
+    <div class="pics"><img src="../campus/sweat.jpg" alt=""><img src="../campus/naruto.jpg" alt=""></div>
   </section>
-      <div class="pics"><img src="../campus/sweat.jpg" alt=""><img src="../campus/naruto.jpg" alt=""></div>
   <div class="cats" id="chips"></div>
   <div class="sec"><h2 id="stitle">Récemment ajoutés</h2><span id="count"></span></div>
   <div class="grid" id="grid"></div>
-  <div class="trust"><div>✓<b>Vendeurs vérifiés</b></div><div>📍<b>Lieux publics</b></div><div>🛡️<b>Annonces contrôlées</b></div></div>  <footer>DealTo · fait au Togo par Ghost · <a href="../">mon portfolio</a></footer>
+  <div class="trust"><div>✓<b>Vendeurs vérifiés</b></div><div>📍<b>Lieux publics</b></div><div>🛡<b>Annonces contrôlées</b></div></div>
+  <footer>DealTo · fait au Togo par Ghost · <a href="../">mon portfolio</a></footer>
 </main>
 <nav class="tabs">
   <button data-t="home" class="on"><i>🏠</i>Accueil</button>
@@ -49,7 +50,7 @@
     <p class="hint">Remplis, puis envoie sur WhatsApp avec 1 à 3 photos. On publie rapidement.</p>
     <label>Titre<input id="s_titre" placeholder="Ex : sac à dos noir"></label>
     <label>Description<textarea id="s_desc" rows="3" placeholder="Taille, couleur, défauts…"></textarea></label>
-    <label>Prix (FCFA)<input id="s_prix" inputmode="numeric" placeholder="5000"></label>
+        <label>Prix (FCFA)<input id="s_prix" inputmode="numeric" placeholder="5000"></label>
     <label>Catégorie<select id="s_cat"></select></label>
     <label>État<select id="s_etat"><option>Neuf</option><option>Très bon état</option><option>Bon état</option><option>Usé mais fonctionne</option></select></label>
     <label>Ville<select id="s_ville"></select></label>
@@ -58,22 +59,19 @@
     <a class="wa" id="sendSell" href="#" target="_blank" rel="noopener">Envoyer sur WhatsApp</a>
   </div>
 </template>
-  <script src="boost.js"></script>
-  <script src="sponsor.js"></script>
 <script src="deal.js"></script>
-  <script src="deal.js"></script>
 <script src="acct.js"></script>
-  <script src="glass.js"></script>
-<script src="pwa.js"></script>
-<script src="pwa.js"></script>
-  <script src="fiche.js"></script> 
+<script src="fiche.js"></script>
 <script src="ui.js"></script>
+<script src="nav.js"></script>
+<script src="glass.js"></script>
+<script src="anim.js"></script>
 <script src="rise.js"></script>
-  <script src="intro.js"></script>
-<script src="cat.js"></script>
-  <script src="grid.js"></script>
-  <script src="intro.js"></script>
+<script src="intro.js"></script>
 <script src="cat.js"></script>
 <script src="grid.js"></script>
+<script src="boost.js"></script>
+<script src="sponsor.js"></script>
+<script src="pwa.js"></script>
 </body>
 </html>
