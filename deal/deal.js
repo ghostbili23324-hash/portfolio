@@ -2,7 +2,7 @@
   var SB="https://tpstmxxkjcttrldxecxs.supabase.co";
   var KEY="sb_publishable_E3wy3JgeLqrXf65eRuZYIw_B4ZKfK2z";
   var ADMIN="22870745806";
-  var CATS=[["Mode","👕"],["Chaussures","👟"],["Téléphones","📱"],["Électronique","💻"],["Maison","🛋️"],["Anime & goodies","🎌"],["Livres & cours","📚"],["Sport","⚽"],["Autre","🛍️"]];
+  var CATS=[["Mode","👕"],["Chaussures","👟"],["Téléphones","📱"],["Électronique","💻"],["Maison","🛋️"],["Anime & goodies","🎌"],["Livres & cours","📚"],["Sport","⚽"],["Beauté","💄"],["Auto & moto","🚗"],["Bébé & enfants","🧸"],["Jeux vidéo","🎮"],["Musique","🎸"],["Bricolage","🔧"],["Animaux","🐾"],["Alimentation","🍎"],["Autre","🛍️"]];
   var VILLES=["Lomé","Kara","Sokodé","Atakpamé","Kpalimé","Dapaong","Autre ville"];
   var cat="Tout",data=[],view=[],onlyFav=false,favs=[];
   try{favs=JSON.parse(localStorage.getItem("dt_fav")||"[]")}catch(e){}
