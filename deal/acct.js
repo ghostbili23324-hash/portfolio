@@ -17,7 +17,7 @@ if(/already/i.test(m))return "Cet email a déjà un compte. Connecte-toi.";
 if(/rate limit|too many/i.test(m))return "Trop d'essais. Réessaie dans quelques minutes.";
 if(/password/i.test(m))return "Mot de passe trop faible (8 caractères min.).";
 if(/valid email|invalid/i.test(m))return "Email invalide.";
-return "Erreur. Vérifie ta connexion et réessaie."}
+return "Erreur : "+(m||"pas de réponse")}
 function tel(v){v=String(v).replace(/\D/g,"");return v.length===8?"228"+v:v}
 function auth(p,b){return fetch(SB+"/auth/v1/"+p,{method:"POST",headers:{apikey:KEY,"Content-Type":"application/json"},body:JSON.stringify(b)}).then(function(r){return r.json().then(function(j){if(!r.ok)throw new Error(j.msg||j.error_description||j.message||"x");return j})})}
 function fresh(){
