@@ -58,3 +58,14 @@ if(rows.some(function(m){return m.to_id===me&&!m.lu}))api("PATCH","messages?conv
 }).catch(function(){})}
 function send(){
 var i=$("ct_i"),v=i.value.trim(),c=cur;if(!v||!c)return;i.value="";
+api("POST","messages",{conv:c.conv,article_id:c.aid||null,article_titre:c.at,from_id:uid(),to_id:c.to,from_nom:mynom(),to_nom:c.nom,body:v},{Prefer:"return=minimal"}).then(function(){load()}).catch(function(){i.value=v;var l=$("ct_l");if(l&&!l.querySelector(".er")){var d=document.createElement("div");d.className="ce2 er";d.textContent="Message non envoyé. Vérifie ta connexion.";l.appendChild(d)}})}
+function inbox(){
+clearInterval(timer);timer=0;cur=null;var me=uid();if(!me)return;
+mount('<div class="ch2"><button id="ct_x">←</button><div><b>Mes messages</b></div></div><div class="cl" id="ct_l"><div class="ce2">Chargement…</div></div>');
+$("ct_x").onclick=close;
+api("GET","messages?or=(from_id.eq."+me+",to_id.eq."+me+")&order=created_at.desc&limit=300&select=*").then(function(rows){
+var g={},o=[];rows.forEach(function(m){var k=m.conv;if(!g[k]){g[k]={m:m,u:0};o.push(k)}if(m.to_id===me&&!m.lu)g[k].u++});
+var l=$("ct_l");if(!l)return;
+l.innerHTML=o.length?o.map(function(k,i){var m=g[k].m,mine=m.from_id===me,nom=mine?m.to_nom:m.from_nom;return '<button class="ci2" data-k="'+i+'"><span class="av2">'+esc((nom||"D").charAt(0).toUpperCase())+'</span><div><b>'+esc(nom||"Utilisateur")+'</b><small>'+esc(m.article_titre||"")+' · '+esc((mine?"Toi : ":"")+m.body)+'</small></div>'+(g[k].u?'<i>'+g[k].u+'</i>':'')+'</button>'}).join(""):'<div class="ce2">Aucune discussion pour le moment.<br>Ouvre une annonce et appuie sur « Discuter ».</div>';
+l.onclick=function(e){var b=e.target.closest(".ci2");if(!b)return;var m=g[o[+b.dataset.k]].m,mine=m.from_id===me;thread({to:mine?m.to_id:m.from_id,nom:mine?m.to_nom:m.from_nom,aid:m.article_id,at:m.article_titre})}
+}).catch(function(){var l=$("ct_l");if(l)l.innerHTML='<div class="ce2">Impossible de charger. Réessaie.</div>'})}
