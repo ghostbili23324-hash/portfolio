@@ -24,3 +24,21 @@ document.head.appendChild(st);
 var ov=null,timer=0,cur=null;
 function close(){clearInterval(timer);timer=0;cur=null;if(ov){ov.remove();ov=null}}
 function mount(h){if(!ov){ov=document.createElement("div");ov.className="ct";document.body.appendChild(ov)}ov.innerHTML=h}
+function hm(d){var x=new Date(d);return ("0"+x.getHours()).slice(-2)+":"+("0"+x.getMinutes()).slice(-2)}
+function key(a,b,aid){return [a,b].sort().join("_")+"_"+(aid||"s")}
+function thread(o){
+var me=uid();if(!me)return;if(o.to===me)return inbox();
+cur={to:o.to,nom:o.nom||"DealTo",aid:o.aid||"",at:o.at||"Support DealTo",conv:key(me,o.to,o.aid),blocked:false,n:-1};
+mount('<div class="ch2"><button id="ct_b">←</button><div><b>'+esc(cur.nom)+'</b><small>'+esc(cur.at)+'</small></div><button id="ct_m">⋮</button></div><div class="cl" id="ct_l"><div class="ce2">Chargement…</div></div><form class="cf" id="ct_f"><input id="ct_i" maxlength="1000" placeholder="Écris ton message…" autocomplete="off"><button>Envoyer</button></form>');
+$("ct_b").onclick=function(){inbox()};
+$("ct_m").onclick=function(){menu()};
+$("ct_f").onsubmit=function(e){e.preventDefault();send()};
+load();clearInterval(timer);timer=setInterval(function(){if(!document.hidden)load()},4000)}
+function menu(){
+var old=ov.querySelector(".cmn");if(old){old.remove();return}
+var m=document.createElement("div");m.className="cmn";
+m.innerHTML='<button data-a="bl">'+(cur.blocked?"Débloquer":"Bloquer")+' cet utilisateur</button><button data-a="rp">🚩 Signaler</button>';
+m.onclick=function(e){var a=e.target.dataset.a;m.remove();if(a==="bl")block();if(a==="rp")report()};
+ov.appendChild(m)}
+function block(){var c=cur;
+(c.blocked?api("DELETE","blocages?blocker=eq."+uid()+"&blocked=eq."+c.to):api("POST","blocages",{blocker:uid(),blocked:c.to},{Prefer:"return=minimal"})).then(function(){c.blocked=!c.blocked;load()}).catch(function(){})}
