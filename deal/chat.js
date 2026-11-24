@@ -69,3 +69,23 @@ var l=$("ct_l");if(!l)return;
 l.innerHTML=o.length?o.map(function(k,i){var m=g[k].m,mine=m.from_id===me,nom=mine?m.to_nom:m.from_nom;return '<button class="ci2" data-k="'+i+'"><span class="av2">'+esc((nom||"D").charAt(0).toUpperCase())+'</span><div><b>'+esc(nom||"Utilisateur")+'</b><small>'+esc(m.article_titre||"")+' · '+esc((mine?"Toi : ":"")+m.body)+'</small></div>'+(g[k].u?'<i>'+g[k].u+'</i>':'')+'</button>'}).join(""):'<div class="ce2">Aucune discussion pour le moment.<br>Ouvre une annonce et appuie sur « Discuter ».</div>';
 l.onclick=function(e){var b=e.target.closest(".ci2");if(!b)return;var m=g[o[+b.dataset.k]].m,mine=m.from_id===me;thread({to:mine?m.to_id:m.from_id,nom:mine?m.to_nom:m.from_nom,aid:m.article_id,at:m.article_titre})}
 }).catch(function(){var l=$("ct_l");if(l)l.innerHTML='<div class="ce2">Impossible de charger. Réessaie.</div>'})}
+function needLogin(){var s=document.querySelector("#sheet");var n=document.querySelector("nav [data-t=me]");if(n)n.click()}
+function support(){if(!uid())return needLogin();api("POST","rpc/support_id",{}).then(function(id){if(id===uid())return inbox();thread({to:id,nom:"Support DealTo",aid:"",at:"Support DealTo"})}).catch(function(){})}
+function unread(btn){api("GET","messages?select=id&to_id=eq."+uid()+"&lu=eq.false").then(function(r){if(r.length){var i=document.createElement("i");i.textContent=r.length;btn.appendChild(i)}}).catch(function(){})}
+function findArt(p){
+var h=p.querySelector(".info h3"),w=p.querySelector(".buy .wa");if(!h||!w||!window.DT)return null;
+var t=h.textContent,href=w.getAttribute("href")||"",all=window.DT.all();
+for(var i=0;i<all.length;i++){if(all[i].titre===t&&href.indexOf("wa.me/"+all[i].tel)>-1)return all[i]}return null}
+var tm=0;
+function scan(){
+var p=$("panel");if(!p)return;
+var s=p.querySelector(".safe");
+if(s&&!p.querySelector(".dm")){var a=findArt(p);
+if(a&&a.user_id&&a.user_id!==uid()){var b=document.createElement("button");b.className="dm";b.textContent="💬 Discuter avec le vendeur";
+b.onclick=function(){if(!uid())return needLogin();thread({to:a.user_id,nom:a.vendeur||"Vendeur",aid:String(a.id||""),at:a.titre})};
+var r=p.querySelector(".rp")||s;r.insertAdjacentElement("beforebegin",b)}}
+var o=$("m_out");
+if(o&&!o.parentNode.querySelector(".mg")){
+var b1=document.createElement("button");b1.className="mg";b1.textContent="💬 Mes messages";b1.onclick=inbox;
+var b2=document.createElement("button");b2.className="mg";b2.textContent="🛟 Parler au support DealTo";b2.onclick=support;
+o.insertAdjacentElement("beforebegin",b1);o.insertAdjacentElement("beforebegin",b2);unread(b1)}}
