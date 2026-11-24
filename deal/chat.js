@@ -89,3 +89,6 @@ if(o&&!o.parentNode.querySelector(".mg")){
 var b1=document.createElement("button");b1.className="mg";b1.textContent="💬 Mes messages";b1.onclick=inbox;
 var b2=document.createElement("button");b2.className="mg";b2.textContent="🛟 Parler au support DealTo";b2.onclick=support;
 o.insertAdjacentElement("beforebegin",b1);o.insertAdjacentElement("beforebegin",b2);unread(b1)}}
+new MutationObserver(function(){clearTimeout(tm);tm=setTimeout(scan,40)}).observe(document.body,{childList:true,subtree:true});
+window.DTC={inbox:inbox,support:support,close:close};
+})();
