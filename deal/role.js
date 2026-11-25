@@ -14,7 +14,7 @@ btn.disabled=true;btn.textContent="Un instant…";
 var s=ses();if(!s)return;
 fetch(SB+"/auth/v1/user",{method:"PUT",headers:{apikey:KEY,Authorization:"Bearer "+s.access_token,"Content-Type":"application/json"},body:JSON.stringify({data:{role:"vendeur"}})})
 .then(function(r){if(!r.ok)throw 1;return r.json()})
-.then(function(u){s.user=u;try{localStorage.setItem("dt_s",JSON.stringify(s))}catch(e){}location.reload()})
+.then(function(u){s.user=u;s.exp=0;;try{localStorage.setItem("dt_s",JSON.stringify(s))}catch(e){}location.reload()})
 .catch(function(){btn.disabled=false;btn.textContent="Réessayer"})}
 var tm=0;
 function scan(){
