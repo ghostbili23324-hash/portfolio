@@ -8,4 +8,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Réveiller Supabase
-        run: curl -fsS "https://tpstmxxkjcttrldxecxs.supabase.co/rest/v1/articles?select=id&limit=1" -H "apikey: sb_publishable_E3wy3JgeLqrXf65eRuZYIw_B4ZKfK2z"
+        run: |
+          curl -fsS "https://tpstmxxkjcttrldxecxs.supabase.co/rest/v1/articles?select=id&limit=1" -H "apikey: sb_publishable_E3wy3JgeLqrXf65eRuZYIw_B4ZKfK2z"
