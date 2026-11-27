@@ -1,0 +1,1 @@
+(function(){var s=document.createElement("style");s.textContent=".au{background:linear-gradient(160deg,rgba(15,76,92,.74),rgba(31,122,140,.62) 55%,rgba(38,34,98,.82)),url(fond.jpg) center/cover no-repeat fixed #0f4c5c!important}.au .as,.au .ad,.au .ac{display:none!important}";document.head.appendChild(s)})();
